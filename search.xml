@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Gaussics_convolution</title>
-    <url>/2025/09/27/Why%20Gaussian%20convolution%20is%20a%20low-pass%20filter/</url>
+    <url>/2025/09/27/Gaussian_convolution_is_a_low-pass_filter/</url>
     <content><![CDATA[<h1 id="直观理解：平滑与平均"><a href="#直观理解：平滑与平均" class="headerlink" title="直观理解：平滑与平均"></a>直观理解：平滑与平均</h1><p>想象一下，你有一张带有噪点的图片（噪点是快速变化的、不规则的明亮和黑暗像素）。</p>
 <ul>
 <li>如果你是用一个所有值都相等的卷积核去处理它，每个像素的新值就会变成他周围一小片区域像素值的平均值。那些孤立的、特别亮或特别暗的噪声点，会被大量的像素值平均掉，使其变得不明显，让整个图像看起来的更加平滑，更模糊。这种“平均掉”快速变化细节的操作就是低通滤波。</li>
