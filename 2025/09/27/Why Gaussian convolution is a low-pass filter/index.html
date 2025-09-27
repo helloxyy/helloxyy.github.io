@@ -23,7 +23,7 @@
   <meta name="description" content="直观理解：平滑与平均想象一下，你有一张带有噪点的图片（噪点是快速变化的、不规则的明亮和黑暗像素）。  如果你是用一个所有值都相等的卷积核去处理它，每个像素的新值就会变成他周围一小片区域像素值的平均值。那些孤立的、特别亮或特别暗的噪声点，会被大量的像素值平均掉，使其变得不明显，让整个图像看起来的更加平滑，更模糊。这种“平均掉”快速变化细节的操作就是低通滤波。 高斯卷积是一个更聪明的版本，它的卷积核分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gaussics_convolution">
-<meta property="og:url" content="http://example.com/2025/09/27/%E4%B8%BA%E4%BB%80%E4%B9%88%E9%AB%98%E6%96%AF%E5%8D%B7%E7%A7%AF%E6%98%AF%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%99%A8%EF%BC%9F/index.html">
+<meta property="og:url" content="http://example.com/2025/09/27/Why%20Gaussian%20convolution%20is%20a%20low-pass%20filter/index.html">
 <meta property="og:site_name" content="伊森的博客">
 <meta property="og:description" content="直观理解：平滑与平均想象一下，你有一张带有噪点的图片（噪点是快速变化的、不规则的明亮和黑暗像素）。  如果你是用一个所有值都相等的卷积核去处理它，每个像素的新值就会变成他周围一小片区域像素值的平均值。那些孤立的、特别亮或特别暗的噪声点，会被大量的像素值平均掉，使其变得不明显，让整个图像看起来的更加平滑，更模糊。这种“平均掉”快速变化细节的操作就是低通滤波。 高斯卷积是一个更聪明的版本，它的卷积核分">
 <meta property="og:locale" content="zh_CN">
@@ -34,7 +34,7 @@
 <meta property="article:tag" content="基础知识">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2025/09/27/%E4%B8%BA%E4%BB%80%E4%B9%88%E9%AB%98%E6%96%AF%E5%8D%B7%E7%A7%AF%E6%98%AF%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%99%A8%EF%BC%9F/">
+<link rel="canonical" href="http://example.com/2025/09/27/Why%20Gaussian%20convolution%20is%20a%20low-pass%20filter/">
 
 
 <script id="page-configurations">
@@ -197,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/27/%E4%B8%BA%E4%BB%80%E4%B9%88%E9%AB%98%E6%96%AF%E5%8D%B7%E7%A7%AF%E6%98%AF%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%99%A8%EF%BC%9F/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/27/Why%20Gaussian%20convolution%20is%20a%20low-pass%20filter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar_custom2.gif">
