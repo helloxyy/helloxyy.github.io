@@ -2,10 +2,8 @@
 <search>
   <entry>
     <title>Gaussics_convolution</title>
-    <url>/2025/09/27/Gaussics-convolution/</url>
-    <content><![CDATA[<div style="text-align=center"><span style="font-size='24px">为什么高斯卷积是低通滤波器？</span></div>
-
-<h1 id="直观理解：平滑与平均"><a href="#直观理解：平滑与平均" class="headerlink" title="直观理解：平滑与平均"></a>直观理解：平滑与平均</h1><p>想象一下，你有一张带有噪点的图片（噪点是快速变化的、不规则的明亮和黑暗像素）。</p>
+    <url>/2025/09/27/%E4%B8%BA%E4%BB%80%E4%B9%88%E9%AB%98%E6%96%AF%E5%8D%B7%E7%A7%AF%E6%98%AF%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%99%A8%EF%BC%9F/</url>
+    <content><![CDATA[<h1 id="直观理解：平滑与平均"><a href="#直观理解：平滑与平均" class="headerlink" title="直观理解：平滑与平均"></a>直观理解：平滑与平均</h1><p>想象一下，你有一张带有噪点的图片（噪点是快速变化的、不规则的明亮和黑暗像素）。</p>
 <ul>
 <li>如果你是用一个所有值都相等的卷积核去处理它，每个像素的新值就会变成他周围一小片区域像素值的平均值。那些孤立的、特别亮或特别暗的噪声点，会被大量的像素值平均掉，使其变得不明显，让整个图像看起来的更加平滑，更模糊。这种“平均掉”快速变化细节的操作就是低通滤波。</li>
 <li>高斯卷积是一个更聪明的版本，它的卷积核分布满足高斯分布，距离中心越近权重越高，越远权重越低。这符合我们的常识，一个像素的值应该和它紧邻的像素最相关。因此，高斯模糊能产生更自然、更平滑的模糊效果，但核心作用依然是<strong>抑制图像中高频的、快速变化的成分</strong>（如噪点、锐利边缘），同时保留低频的、缓慢变化的成分（如大面积的色块）。</li>
@@ -26,7 +24,7 @@
 </li>
 </ul>
 <p>当高斯卷积核滑过这些区域时：<br>在平滑区域（低频）,周围的像素值很相似，加权平均后变化不大。<br>在边缘噪声区域，一个峰值（这里指较大的值，特别亮或特别暗）的像素会与周围像素进行加权平均，其极端的亮度&#x2F;幻读会被拉回到临近像素的平均水平，从而使得边缘变得柔和。</p>
-<p>关于傅里叶变换与卷积的关系相关资料(按优先级排序)：<br>王木头学科学：<a href="https://www.youtube.com/watch?v=Ifg712iHg_k">https://www.youtube.com/watch?v=Ifg712iHg_k</a> 【youtube-link】<br><a href="https://www.bilibili.com/video/BV1ce4y1p7jF/?vd_source=8bebdc07c723422ebacfd8b6c35d6ba0">https://www.bilibili.com/video/BV1ce4y1p7jF/?vd_source=8bebdc07c723422ebacfd8b6c35d6ba0</a> 【BiliBili-link】<br>Mars的博客8&#x2F;22的文章：<a href="https://whjkm.github.io/">https://whjkm.github.io/</a><br>南京大学数字图像处理：<a href="https://www.lamda.nju.edu.cn/chengq/course/dip2020/slides/Lecture_4.pdf">https://www.lamda.nju.edu.cn/chengq/course/dip2020/slides/Lecture_4.pdf</a></p>
+<p>关于傅里叶变换与卷积的关系相关资料(按优先级排序)：<br>王木头学科学：<a href="https://www.youtube.com/watch?v=Ifg712iHg_k">https://www.youtube.com/watch?v=Ifg712iHg_k</a> 【youtube-link】<br><a href="https://www.bilibili.com/video/BV1ce4y1p7jF/?vd_source=8bebdc07c723422ebacfd8b6c35d6ba0">https://www.bilibili.com/video/BV1ce4y1p7jF/?vd_source=8bebdc07c723422ebacfd8b6c35d6ba0</a> 【BiliBili-link】<br>Mars的博客8&#x2F;22的文章：<a href="https://whjkm.github.io/">https://whjkm.github.io/</a><br>南京大学数字图像处理：<br><a href="https://www.lamda.nju.edu.cn/chengq/course/dip2020/slides/Lecture_4.pdf">https://www.lamda.nju.edu.cn/chengq/course/dip2020/slides/Lecture_4.pdf</a></p>
 ]]></content>
       <categories>
         <category>知识库</category>
