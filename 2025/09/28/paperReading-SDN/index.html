@@ -20,28 +20,35 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="伊森的博客">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="#论文阅读 #diffusion_model #sematic_segmentation NeurLPS 2022 精确的边界区域的预测对于语义分割十分重要，这篇论文针对“普通卷积难以利用深度模型去生成精确的边界预测”的问题，提出了一种语义扩散网络去近似扩散过程，包含了一个特征融合网络以及参数化语义微分卷积操作。并且可以插入现有的“Encoder-Decoder”分割网络。  Motivation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="paperReading-SDN">
+<meta property="og:url" content="http://example.com/2025/09/28/paperReading-SDN/index.html">
 <meta property="og:site_name" content="伊森的博客">
+<meta property="og:description" content="#论文阅读 #diffusion_model #sematic_segmentation NeurLPS 2022 精确的边界区域的预测对于语义分割十分重要，这篇论文针对“普通卷积难以利用深度模型去生成精确的边界预测”的问题，提出了一种语义扩散网络去近似扩散过程，包含了一个特征融合网络以及参数化语义微分卷积操作。并且可以插入现有的“Encoder-Decoder”分割网络。  Motivation">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/imgs/250928/2022_%E8%AF%AD%E4%B9%89%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B.png">
+<meta property="og:image" content="http://example.com/imgs/250928/2025_%E8%AF%AD%E4%B9%89%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8Bf2.png">
+<meta property="article:published_time" content="2025-09-28T07:08:40.000Z">
+<meta property="article:modified_time" content="2025-09-28T07:11:29.704Z">
 <meta property="article:author" content="Ethen Arigle">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/imgs/250928/2022_%E8%AF%AD%E4%B9%89%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B.png">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2025/09/28/paperReading-SDN/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>伊森的博客</title>
+  <title>paperReading-SDN | 伊森的博客</title>
   
 
 
@@ -184,9 +191,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -202,10 +210,9 @@
       <meta itemprop="name" content="伊森的博客">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/09/28/paperReading-SDN/" class="post-title-link" itemprop="url">paperReading-SDN</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          paperReading-SDN
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -219,6 +226,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -229,7 +243,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>#论文阅读 #diffusion_model #sematic_segmentation</p>
+        <p>#论文阅读 #diffusion_model #sematic_segmentation</p>
 <p>NeurLPS 2022</p>
 <pre><code>精确的边界区域的预测对于语义分割十分重要，这篇论文针对“普通卷积难以利用深度模型去生成精确的边界预测”的问题，提出了一种语义扩散网络去近似扩散过程，包含了一个特征融合网络以及参数化语义微分卷积操作。并且可以插入现有的“Encoder-Decoder”分割网络。
 </code></pre>
@@ -286,117 +300,30 @@
 </ul>
 <p>实验部分不在此赘述，请详见论文：<a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper_files/paper/2022/file/396446770f5e8496ca1feb02079d4fb7-Paper-Conference.pdf">点击获取论文</a></p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2025/09/27/Gaussian_convolution_is_a_low-pass_filter/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar_custom2.gif">
-      <meta itemprop="name" content="Ethen Arigle">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="伊森的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2025/09/27/Gaussian_convolution_is_a_low-pass_filter/" class="post-title-link" itemprop="url">高斯卷积为什么是低通滤波器？</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2025-09-27 19:39:33" itemprop="dateCreated datePublished" datetime="2025-09-27T19:39:33+08:00">2025-09-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-09-28 09:43:24" itemprop="dateModified" datetime="2025-09-28T09:43:24+08:00">2025-09-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%9F%A5%E8%AF%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">知识库</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="直观理解：平滑与平均"><a href="#直观理解：平滑与平均" class="headerlink" title="直观理解：平滑与平均"></a>直观理解：平滑与平均</h1><p>想象一下，你有一张带有噪点的图片（噪点是快速变化的、不规则的明亮和黑暗像素）。</p>
-<ul>
-<li>如果你是用一个所有值都相等的卷积核去处理它，每个像素的新值就会变成他周围一小片区域像素值的平均值。那些孤立的、特别亮或特别暗的噪声点，会被大量的像素值平均掉，使其变得不明显，让整个图像看起来的更加平滑，更模糊。这种“平均掉”快速变化细节的操作就是低通滤波。</li>
-<li>高斯卷积是一个更聪明的版本，它的卷积核分布满足高斯分布，距离中心越近权重越高，越远权重越低。这符合我们的常识，一个像素的值应该和它紧邻的像素最相关。因此，高斯模糊能产生更自然、更平滑的模糊效果，但核心作用依然是<strong>抑制图像中高频的、快速变化的成分</strong>（如噪点、锐利边缘），同时保留低频的、缓慢变化的成分（如大面积的色块）。</li>
-</ul>
-<h1 id="数学理解：卷积"><a href="#数学理解：卷积" class="headerlink" title="数学理解：卷积"></a>数学理解：卷积</h1><p>如果你学过信号处理，傅里叶变换可能会帮助你理解他。博主并未涉猎这一领域便不在这里具体展开。可以参考文后附加资料。<br>在说这个问题之前，我们得先知道在图像中，什么是“高频”和“低频”？</p>
-<ul>
-<li><strong>高频</strong>：像素值发生剧烈、快速变化的区域。例如：<ul>
-<li><strong>物体的边缘</strong>（从黑到白的突然过渡）</li>
-<li><strong>细致的纹理</strong>（如头发、草地）</li>
-<li><strong>噪点</strong></li>
-</ul>
-</li>
-<li><strong>低频</strong>：像素值变化缓慢、平滑的区域。例如：<ul>
-<li><strong>大面积的纯色墙面</strong></li>
-<li><strong>模糊的背景</strong></li>
-<li><strong>平滑的渐变天空</strong></li>
-</ul>
-</li>
-</ul>
-<p>当高斯卷积核滑过这些区域时：<br>在平滑区域（低频）,周围的像素值很相似，加权平均后变化不大。<br>在边缘噪声区域，一个峰值（这里指较大的值，特别亮或特别暗）的像素会与周围像素进行加权平均，其极端的亮度&#x2F;幻读会被拉回到临近像素的平均水平，从而使得边缘变得柔和。</p>
-<h3 id="关于傅里叶变换与卷积的关系相关资料-按优先级排序-："><a href="#关于傅里叶变换与卷积的关系相关资料-按优先级排序-：" class="headerlink" title="关于傅里叶变换与卷积的关系相关资料(按优先级排序)："></a>关于傅里叶变换与卷积的关系相关资料(按优先级排序)：</h3><p>[1] 王木头学科学：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Ifg712iHg_k">youtube链接</a> ; <a href="https://www.bilibili.[]com/video/BV1ce4y1p7jF/?vd_source=8bebdc07c723422ebacfd8b6c35d6ba0">BiliBili链接</a><br>[2] Mars的博客8&#x2F;22的文章：<a target="_blank" rel="noopener" href="https://whjkm.github.io/">https://whjkm.github.io/</a><br>[3] 南京大学数字图像处理：<br><a target="_blank" rel="noopener" href="https://www.lamda.nju.edu.cn/chengq/course/dip2020/slides/Lecture_4.pdf">https://www.lamda.nju.edu.cn/chengq/course/dip2020/slides/Lecture_4.pdf</a></p>
-<p><a target="_blank" rel="noopener" href="https://helloxyy.github.io/pdf/%E4%B8%BA%E4%BB%80%E4%B9%88%E9%AB%98%E6%96%AF%E5%8D%B7%E7%A7%AF%E6%98%AF%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%99%A8%EF%BC%9F.pdf">点击获取本博文PDF</a></p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/09/27/Gaussian_convolution_is_a_low-pass_filter/" rel="prev" title="高斯卷积为什么是低通滤波器？">
+      <i class="fa fa-chevron-left"></i> 高斯卷积为什么是低通滤波器？
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -449,6 +376,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Motivation"><span class="nav-number">1.</span> <span class="nav-text">Motivation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method-%E4%BC%A0%E7%BB%9F%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">Method - 传统的解决方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A9%E6%95%A3%E8%BF%87%E7%A8%8B%E5%85%AC%E5%BC%8F%E8%A7%A3%E6%9E%90"><span class="nav-number">2.1.</span> <span class="nav-text">扩散过程公式解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Formulation"><span class="nav-number">2.2.</span> <span class="nav-text">Formulation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method-Semantic-Diffusion-Network"><span class="nav-number">3.</span> <span class="nav-text">Method - Semantic Diffusion Network</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Semantic-Difference-Convolation"><span class="nav-number">3.1.</span> <span class="nav-text">Semantic Difference Convolation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8SDN%E7%9A%84%E5%88%86%E5%89%B2%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.2.</span> <span class="nav-text">使用SDN的分割模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E5%B0%BA%E5%BA%A6%E8%A7%A3%E7%A0%81%E5%99%A8"><span class="nav-number">3.2.1.</span> <span class="nav-text">单尺度解码器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E5%B0%BA%E5%BA%A6%E8%A7%A3%E7%A0%81%E5%99%A8"><span class="nav-number">3.2.2.</span> <span class="nav-text">多尺度解码器</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
