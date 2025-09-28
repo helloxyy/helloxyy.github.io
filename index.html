@@ -204,7 +204,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2025/09/28/paperReading-SDN/" class="post-title-link" itemprop="url">paperReading-SDN</a>
+            <a href="/2025/09/28/paperReading-SDN/" class="post-title-link" itemprop="url">论文阅读：Semantic Diffusion Network for Semantic Segmentation</a>
         </h2>
 
         <div class="post-meta">
@@ -215,7 +215,16 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-09-28 15:08:40 / 修改时间：15:11:29" itemprop="dateCreated datePublished" datetime="2025-09-28T15:08:40+08:00">2025-09-28</time>
+              <time title="创建时间：2025-09-28 15:08:40 / 修改时间：15:30:28" itemprop="dateCreated datePublished" datetime="2025-09-28T15:08:40+08:00">2025-09-28</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" itemprop="url" rel="index"><span itemprop="name">论文阅读</span></a>
+                </span>
             </span>
 
           
@@ -229,10 +238,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>#论文阅读 #diffusion_model #sematic_segmentation</p>
-<p>NeurLPS 2022</p>
-<pre><code>精确的边界区域的预测对于语义分割十分重要，这篇论文针对“普通卷积难以利用深度模型去生成精确的边界预测”的问题，提出了一种语义扩散网络去近似扩散过程，包含了一个特征融合网络以及参数化语义微分卷积操作。并且可以插入现有的“Encoder-Decoder”分割网络。
-</code></pre>
+          <p>NeurLPS 2022</p>
+<blockquote>
+<p>精确的边界区域的预测对于语义分割十分重要，这篇论文针对“普通卷积难以利用深度模型去生成精确的边界预测”的问题，提出了一种语义扩散网络去近似扩散过程，包含了一个特征融合网络以及参数化语义微分卷积操作。并且可以插入现有的“Encoder-Decoder”分割网络。</p>
+</blockquote>
 <h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>对于如何提升分割结果的边界质量，现有（2022）工作方式：</p>
 <ul>
 <li>使用一个后处理模块去<font color='red'>细化边界</font>。</li>
@@ -254,16 +263,16 @@
 <p><img src="/../imgs/250928/2025_%E8%AF%AD%E4%B9%89%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8Bf2.png" alt="2025_语义扩散模型f2.png"></p>
 <p>由以上信息我们可以得知这篇文章的motivation: <strong>改善类间边界(Inter-class boundary)</strong> from operator level。</p>
 <h2 id="Method-传统的解决方式"><a href="#Method-传统的解决方式" class="headerlink" title="Method - 传统的解决方式"></a>Method - 传统的解决方式</h2><p>核心：使用改进的 anisotropic以语义为导向的扩散过程表示类间边界增强。<br>【原文】<em>we propose a learnable semantic diffusion network (SDN) to approximate the diffusion process, which parameterizes the traditional solver and only requires only one forward instead of multiple iterations.</em><br>传统的迭代求解器（multiple iterations solver），比如有限差分法的性能严重依赖于时间步长、迭代次数、扩散系数等超参数的设置。深度学习模型通常通过梯度下降自动学习参数，如果其中的模块对超参数极其敏感，会使得整个模型的训练变得非常困难，并且会导致结果发散（NaN或者梯度爆炸）。这篇文章不打算严格地求解复杂的微分方程，而是通过一个可学习的神经网络去近似这个扩散过程以达到最终的效果。在说明具体改进之前，先梳理一下传统的方法。</p>
-<h3 id="扩散过程公式解析"><a href="#扩散过程公式解析" class="headerlink" title="扩散过程公式解析"></a>扩散过程公式解析</h3><p>![[扩散过程公式解析.jpg]]</p>
-<h3 id="Formulation"><a href="#Formulation" class="headerlink" title="Formulation"></a>Formulation</h3><p>该部分则要从上述的“扩散过程”，准确来说是各向异性的扩散过程通过数学形式化，适配到深度语义分割的语境当中去。<br>![[离散化公式.jpg]]<br>但是呢，这个公式难以嵌入到深度模型中去，这种有限差分法的稳定性依赖于边界条件的设置和参数的选择。这种方法需要多次迭代（对于t），计算量复杂且容易导致梯度爆炸。(详细分析见本节第一段)</p>
+<h3 id="扩散过程公式解析"><a href="#扩散过程公式解析" class="headerlink" title="扩散过程公式解析"></a>扩散过程公式解析</h3><p><img src="/../imgs/250928/%E6%89%A9%E6%95%A3%E8%BF%87%E7%A8%8B%E5%85%AC%E5%BC%8F%E8%A7%A3%E6%9E%90.jpg" alt="扩散过程公式解析.jpg"></p>
+<h3 id="Formulation"><a href="#Formulation" class="headerlink" title="Formulation"></a>Formulation</h3><p>该部分则要从上述的“扩散过程”，准确来说是各向异性的扩散过程通过数学形式化，适配到深度语义分割的语境当中去。<br><img src="/../imgs/250928/%E7%A6%BB%E6%95%A3%E5%8C%96%E5%85%AC%E5%BC%8F.jpg" alt="离散化公式.jpg"><br>但是呢，这个公式难以嵌入到深度模型中去，这种有限差分法的稳定性依赖于边界条件的设置和参数的选择。这种方法需要多次迭代（对于t），计算量复杂且容易导致梯度爆炸。(详细分析见本节第一段)</p>
 <h2 id="Method-Semantic-Diffusion-Network"><a href="#Method-Semantic-Diffusion-Network" class="headerlink" title="Method - Semantic Diffusion Network"></a>Method - Semantic Diffusion Network</h2><p><em>a novel learnable approach called semantic diffusion network (SDN) for approximating the diffusion process, which contains a parameterized semantic difference convolution operator followed by a feature fusion module and constructs a differentiable mapping from original backbone features to advanced boundary-aware features.</em></p>
-<h3 id="Semantic-Difference-Convolation"><a href="#Semantic-Difference-Convolation" class="headerlink" title="Semantic Difference Convolation"></a>Semantic Difference Convolation</h3><p>![[SDN.jpg]]<br>上图可见，语义相似性控制类内细节不会被差异特征（纹理）影响而被抑制。而SDC的输出是一个Y，这个Y可以理解为是一个边界响应图，它突出了语义边界的位置，主要包含了<strong>变化的梯度信息</strong>（上述公式的语义相似性和特征差异性都反应的是梯度变化），它可能会丢失一些静态的、全局的语义信息。那么这个Y就不能是直接的输出，因为会缺少上线文信息，需要一个融合模块将。<strong>将SDC提取的边界增强信息Y与原始特征信U息地融合起来</strong>。这个特征模块就是F^sdn.<br>F的具体工作方式：</p>
+<h3 id="Semantic-Difference-Convolation"><a href="#Semantic-Difference-Convolation" class="headerlink" title="Semantic Difference Convolation"></a>Semantic Difference Convolation</h3><p><img src="/../imgs/250928/SDN.jpg" alt="SDN.jpg"><br>上图可见，语义相似性控制类内细节不会被差异特征（纹理）影响而被抑制。而SDC的输出是一个Y，这个Y可以理解为是一个边界响应图，它突出了语义边界的位置，主要包含了<strong>变化的梯度信息</strong>（上述公式的语义相似性和特征差异性都反应的是梯度变化），它可能会丢失一些静态的、全局的语义信息。那么这个Y就不能是直接的输出，因为会缺少上线文信息，需要一个融合模块将。<strong>将SDC提取的边界增强信息Y与原始特征信U息地融合起来</strong>。这个特征模块就是F^sdn.<br>F的具体工作方式：</p>
 <ul>
 <li>现将原始特征信息U与SDC输出的边界响应特征Y在通道上拼接起来。 即 [U, Y]</li>
 <li>使用一个1x1的卷积融合所有的通道信息，最后输出符合期望的维度（一般与U的通道数相同）。即Conv([U, Y])</li>
 <li>当U和Y的尺寸不匹配是，可以采用&#x3D;&#x3D;双线性差值上采样&#x3D;&#x3D;的形式使其对齐，确保能进行拼接。</li>
 </ul>
-<h3 id="使用SDN的分割模型"><a href="#使用SDN的分割模型" class="headerlink" title="使用SDN的分割模型"></a>使用SDN的分割模型</h3><p>![[SDN框架图.png]]</p>
+<h3 id="使用SDN的分割模型"><a href="#使用SDN的分割模型" class="headerlink" title="使用SDN的分割模型"></a>使用SDN的分割模型</h3><p><img src="/../imgs/250928/SDN%E6%A1%86%E6%9E%B6%E5%9B%BE.png" alt="SDN框架图.png"></p>
 <p>上图是两种应用的分割模型。</p>
 <h4 id="单尺度解码器"><a href="#单尺度解码器" class="headerlink" title="单尺度解码器"></a>单尺度解码器</h4><p>适用模型： 编码器输出单一尺度的特征图，解码器基于该特征图进行预测。<br>典型代表：</p>
 <ul>
@@ -285,6 +294,7 @@
 <li>DPT（Dense Prediction Transformer, 2021）编码器使用ViT，但是使用UNet类似的渐进式融合解码器，将ViT输出的不同阶段的特征图（不同层的[CLS] token对应的特征）重新组合乘图像金字塔结构，然后通过多层卷积核上采样操作逐步佛那个号不同尺度的特征。</li>
 </ul>
 <p>实验部分不在此赘述，请详见论文：<a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper_files/paper/2022/file/396446770f5e8496ca1feb02079d4fb7-Paper-Conference.pdf">点击获取论文</a></p>
+<p><a target="_blank" rel="noopener" href="https://helloxyy.github.io/pdf/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%EF%BC%9ASemantic%20Diffusion%20Network%20for%20Semantic%20Segmentation.pdf">点击获取获取本博文PDF</a></p>
 
       
     </div>
@@ -471,13 +481,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
