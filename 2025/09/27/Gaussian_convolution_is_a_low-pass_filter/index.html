@@ -28,7 +28,7 @@
 <meta property="og:description" content="直观理解：平滑与平均想象一下，你有一张带有噪点的图片（噪点是快速变化的、不规则的明亮和黑暗像素）。  如果你是用一个所有值都相等的卷积核去处理它，每个像素的新值就会变成他周围一小片区域像素值的平均值。那些孤立的、特别亮或特别暗的噪声点，会被大量的像素值平均掉，使其变得不明显，让整个图像看起来的更加平滑，更模糊。这种“平均掉”快速变化细节的操作就是低通滤波。 高斯卷积是一个更聪明的版本，它的卷积核分">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-09-27T11:39:33.000Z">
-<meta property="article:modified_time" content="2025-09-27T16:11:35.715Z">
+<meta property="article:modified_time" content="2025-09-28T01:43:24.477Z">
 <meta property="article:author" content="Ethen Arigle">
 <meta property="article:tag" content="卷积">
 <meta property="article:tag" content="基础知识">
@@ -227,7 +227,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-09-28 00:11:35" itemprop="dateModified" datetime="2025-09-28T00:11:35+08:00">2025-09-28</time>
+                <time title="修改时间：2025-09-28 09:43:24" itemprop="dateModified" datetime="2025-09-28T09:43:24+08:00">2025-09-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -278,8 +278,8 @@
 </li>
 </ul>
 <p>当高斯卷积核滑过这些区域时：<br>在平滑区域（低频）,周围的像素值很相似，加权平均后变化不大。<br>在边缘噪声区域，一个峰值（这里指较大的值，特别亮或特别暗）的像素会与周围像素进行加权平均，其极端的亮度&#x2F;幻读会被拉回到临近像素的平均水平，从而使得边缘变得柔和。</p>
-<p>关于傅里叶变换与卷积的关系相关资料(按优先级排序)：<br>王木头学科学：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Ifg712iHg_k">https://www.youtube.com/watch?v=Ifg712iHg_k</a> 【youtube-link】<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ce4y1p7jF/?vd_source=8bebdc07c723422ebacfd8b6c35d6ba0">https://www.bilibili.com/video/BV1ce4y1p7jF/?vd_source=8bebdc07c723422ebacfd8b6c35d6ba0</a> 【BiliBili-link】<br>Mars的博客8&#x2F;22的文章：<a target="_blank" rel="noopener" href="https://whjkm.github.io/">https://whjkm.github.io/</a><br>南京大学数字图像处理：<br><a target="_blank" rel="noopener" href="https://www.lamda.nju.edu.cn/chengq/course/dip2020/slides/Lecture_4.pdf">https://www.lamda.nju.edu.cn/chengq/course/dip2020/slides/Lecture_4.pdf</a></p>
-<p>pdf链接：<a target="_blank" rel="noopener" href="https://helloxyy.github.io/pdf/[https://helloxyy.github.io/pdf/%E4%B8%BA%E4%BB%80%E4%B9%88%E9%AB%98%E6%96%AF%E5%8D%B7%E7%A7%AF%E6%98%AF%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%99%A8%EF%BC%9F.pdf]">https://helloxyy.github.io/pdf/[https://helloxyy.github.io/pdf/%E4%B8%BA%E4%BB%80%E4%B9%88%E9%AB%98%E6%96%AF%E5%8D%B7%E7%A7%AF%E6%98%AF%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%99%A8%EF%BC%9F.pdf]</a></p>
+<h3 id="关于傅里叶变换与卷积的关系相关资料-按优先级排序-："><a href="#关于傅里叶变换与卷积的关系相关资料-按优先级排序-：" class="headerlink" title="关于傅里叶变换与卷积的关系相关资料(按优先级排序)："></a>关于傅里叶变换与卷积的关系相关资料(按优先级排序)：</h3><p>[1] 王木头学科学：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Ifg712iHg_k">youtube链接</a> ; <a href="https://www.bilibili.[]com/video/BV1ce4y1p7jF/?vd_source=8bebdc07c723422ebacfd8b6c35d6ba0">BiliBili链接</a><br>[2] Mars的博客8&#x2F;22的文章：<a target="_blank" rel="noopener" href="https://whjkm.github.io/">https://whjkm.github.io/</a><br>[3] 南京大学数字图像处理：<br><a target="_blank" rel="noopener" href="https://www.lamda.nju.edu.cn/chengq/course/dip2020/slides/Lecture_4.pdf">https://www.lamda.nju.edu.cn/chengq/course/dip2020/slides/Lecture_4.pdf</a></p>
+<p><a target="_blank" rel="noopener" href="https://helloxyy.github.io/pdf/%E4%B8%BA%E4%BB%80%E4%B9%88%E9%AB%98%E6%96%AF%E5%8D%B7%E7%A7%AF%E6%98%AF%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%99%A8%EF%BC%9F.pdf">点击获取本博文PDF</a></p>
 
     </div>
 
@@ -355,7 +355,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E7%90%86%E8%A7%A3%EF%BC%9A%E5%B9%B3%E6%BB%91%E4%B8%8E%E5%B9%B3%E5%9D%87"><span class="nav-number">1.</span> <span class="nav-text">直观理解：平滑与平均</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3%EF%BC%9A%E5%8D%B7%E7%A7%AF"><span class="nav-number">2.</span> <span class="nav-text">数学理解：卷积</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B4%E8%A7%82%E7%90%86%E8%A7%A3%EF%BC%9A%E5%B9%B3%E6%BB%91%E4%B8%8E%E5%B9%B3%E5%9D%87"><span class="nav-number">1.</span> <span class="nav-text">直观理解：平滑与平均</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6%E7%90%86%E8%A7%A3%EF%BC%9A%E5%8D%B7%E7%A7%AF"><span class="nav-number">2.</span> <span class="nav-text">数学理解：卷积</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E4%B8%8E%E5%8D%B7%E7%A7%AF%E7%9A%84%E5%85%B3%E7%B3%BB%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99-%E6%8C%89%E4%BC%98%E5%85%88%E7%BA%A7%E6%8E%92%E5%BA%8F-%EF%BC%9A"><span class="nav-number">2.0.1.</span> <span class="nav-text">关于傅里叶变换与卷积的关系相关资料(按优先级排序)：</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
